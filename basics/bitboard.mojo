@@ -15,7 +15,7 @@ struct BitBoardIterator(__BitBoardIterator):
     var iterable: UInt64
 
     @always_inline
-    fn __init__(inout self, iterable: UInt64):
+    fn __init__(mut self, iterable: UInt64):
         self.iterable = iterable
 
     @always_inline
@@ -119,7 +119,7 @@ struct BitBoard(IterableBitBoard, Stringable):
                 else:
                     s += "□ "  
             if row != rows - 1:
-                s += str(8 - row) + "\n"     
+                s += (8 - row).__str__() + "\n"     
         return s + "1 \n"
 
     @always_inline

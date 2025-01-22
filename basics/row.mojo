@@ -1,3 +1,4 @@
+
 @value
 @register_passable
 struct File():
@@ -24,7 +25,7 @@ struct File():
 
     @always_inline
     fn to_index(self) -> Int:
-        return self.file.__mlir_index__()
+        return Int(self.file)
 
     @always_inline
     fn left(self) -> Self:
@@ -37,7 +38,7 @@ struct File():
 @value
 @register_passable
 struct Rank():
-    var rank: UInt8
+    var rank: Scalar[DType.uint8]
 
     alias First = Rank(0)
     alias Second = Rank(1)
@@ -60,7 +61,7 @@ struct Rank():
 
     @always_inline
     fn to_index(self) -> Int:
-        return self.rank.__mlir_index__()
+        return Int(self.rank)
 
     @always_inline
     fn down(self) -> Self:

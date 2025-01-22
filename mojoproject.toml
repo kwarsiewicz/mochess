@@ -1,5 +1,5 @@
 [project]
-channels = ["conda-forge", "https://conda.modular.com/max"]
+channels = ["conda-forge", "https://conda.modular.com/max-nightly/"]
 description = "Add a short description here"
 name = "mochess"
 platforms = ["linux-64"]
@@ -8,4 +8,4 @@ version = "0.1.0"
 [tasks]
 
 [dependencies]
-max = ">=24.6.0,<25"
+max = "*"

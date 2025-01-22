@@ -1,7 +1,7 @@
 from basics.generic.magic import RAYS, MAGIC
 
 def main():
-    print(str(MAGIC[2][10]))
+    print(MAGIC[2][10].__str__())
 
 
 

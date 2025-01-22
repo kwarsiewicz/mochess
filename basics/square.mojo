@@ -37,7 +37,7 @@ struct Square():
 
     @always_inline
     fn to_index(self) -> Int:
-        return self.sq.__mlir_index__()
+        return Int(self.sq)
 
     @always_inline
     fn to_u8(self) -> UInt8:

@@ -88,7 +88,7 @@ fn rays_to_q(mask: BitBoard) -> List[BitBoard]:
         var curr = BitBoard.EMPTY_BB
         for j in range(pop_count(mask.bb)):
             if (i & (BitBoard.U64_1 << j)) == (BitBoard.U64_1 << j):
-                curr |= BitBoard.from_square(squares[j.__mlir_index__()])
+                curr |= BitBoard.from_square(squares[j])
         q.append(curr)
     return q
 
@@ -157,7 +157,7 @@ fn generate_magic(sq: Int, off: Int, pce: Int, mut pce_magic: InlineArray[Magic,
         done = True
         new_ans = List[BitBoard]()
         for i in range(len(q)):
-            var j = (magic_bb * q[i]).rshift_u64(new_magic.shift).__mlir_index__()
+            var j = (magic_bb * q[i]).rshift_u64(new_magic.shift)
             if new_ans[j] == BitBoard.EMPTY_BB or new_ans[j] == a[i]:
                 new_ans[j] = a[i]
             else:
@@ -168,7 +168,7 @@ fn generate_magic(sq: Int, off: Int, pce: Int, mut pce_magic: InlineArray[Magic,
 
     pce_magic[sq] = new_magic
     for i in range(len(q)):
-        var j = (new_magic.magic_number * q[i]).rshift_u64(new_magic.shift).__mlir_index__()
+        var j = (new_magic.magic_number * q[i]).rshift_u64(new_magic.shift)
         moves[new_off + j] |= a[i]
         move_rays[new_off + j] |= RAYS[pce][sq]
     if new_off + len(q) < off:
