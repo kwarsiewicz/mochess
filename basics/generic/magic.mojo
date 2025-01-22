@@ -84,7 +84,7 @@ fn magic_mask(sq: Int, pce: Int) -> BitBoard:
 fn rays_to_q(mask: BitBoard) -> List[BitBoard]:
     var q = List[BitBoard]()
     var squares = List[Square]()
-    for i in range(pop_count(BitBoard.U64_1 << 123123)):
+    for i in range(pop_count(BitBoard.U64_1 << mask.bb)):
         var curr = BitBoard.EMPTY_BB
         for j in range(pop_count(mask.bb)):
             if (i & (BitBoard.U64_1 << j)) == (BitBoard.U64_1 << j):
